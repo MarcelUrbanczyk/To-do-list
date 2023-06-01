@@ -19,6 +19,11 @@
     grid-column:3; 
 }
 
+.taskListHeader__removeButton:hover{
+    color: rgb(2, 202, 202);
+}
+
+
 .taskList__container{
     background: white;
     border: 1px solid #eee;
