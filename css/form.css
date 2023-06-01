@@ -1,5 +1,5 @@
 .form{
-    margin: 10px 0 10px 0;
+    margin: 10px;
 }
 .form__header{
     background: white;
@@ -37,4 +37,19 @@ margin: 20px;
 
 .form__button:hover{
     background: #00abab; 
+}
+
+@media (max-width: 960px) {
+    .form__content{
+        display: grid;
+        height: 150px;
+        grid-template-rows: 75px 75px;
+        grid-template-columns: 1fr;
+    }
+
+    .form__button{
+        padding: 10px;
+        grid-row: 2;
+    }
+    
 }
