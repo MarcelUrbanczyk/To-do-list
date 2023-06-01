@@ -51,6 +51,8 @@
         const newTaskInput = document.querySelector(".js-newTask");
         const newTaskText=newTaskInput.value.trim();
         tasks.push({content:newTaskText, done:false,});
+        newTaskInput.focus();
+        newTaskInput.value="";
         render();
     };
 
