@@ -1,0 +1,80 @@
+.taskList__header{
+    background: white;
+    border: 1px solid #eee;
+    display: grid;
+    height: 80px;
+    grid-template-columns: "200px 1fr auto";
+}
+
+.taskList__headerText{
+    margin: 20px;
+}
+
+.taskListHeader__removeButton{
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: teal;
+    font-size: 18px;
+    grid-column:3; 
+}
+
+.taskList__container{
+    background: white;
+    border: 1px solid #eee;
+    padding: 40px 0 40px 0;
+    min-height: 100px;
+    align-items: center;
+    justify-content: center;
+}
+
+.taskList__task{
+ border-bottom: 2px solid #eee;
+ display: grid;
+ grid-template-columns: auto 1fr auto;
+ font-size: 20px;
+ align-items: center;
+ margin: 0 20px 0 20px;
+}
+
+.taskList__task--lineTrough{
+    text-decoration: line-through;
+}
+
+.tasklist{
+    margin: 10px 0 10px 0;
+}
+
+.js-done{
+    height: 30px;
+    width: 30px;
+    background-color: green;
+    border: none;
+    margin: 10px;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.js-done:hover{
+    background-color: #05aa05;
+}
+
+.js-remove{
+    height: 30px;
+    width: 30px;
+    background-color: #ff0048;
+    border: none;
+    margin: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.js-remove:hover{
+    background-color: #b90437;
+}
+
+.js-tasks{
+    margin: 0;
+    padding: 0;
+}
