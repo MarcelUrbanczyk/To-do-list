@@ -3,8 +3,8 @@
     border: 1px solid #eee;
     display: grid;
     height: 80px;
+    margin: 0 10px 0 10px;
     grid-template-columns: "200px 1fr auto";
-    margin: 0 10px 0 10px
 }
 
 .taskList__headerText{
@@ -21,29 +21,27 @@
 }
 
 .taskListHeader__removeButton:hover{
-
     color: rgb(4, 201, 201);
-
 }
 
 
 .taskList__container{
+    align-items: center;
     background: white;
     border: 1px solid #eee;
     padding: 40px 0 40px 0;
-    min-height: 100px;
-    align-items: center;
-    justify-content: center;
     margin: 0 10px 0 10px;
+    min-height: 100px;
+    justify-content: center;
 }
 
 .taskList__task{
+ align-items: center;
  border-bottom: 2px solid #eee;
  display: grid;
- grid-template-columns: auto 1fr auto;
  font-size: 20px;
- align-items: center;
  margin: 0 20px 0 20px;
+ grid-template-columns: auto 1fr auto;
 }
 
 .taskList__task--lineTrough{
@@ -55,14 +53,14 @@
 }
 
 .js-done{
-    height: 30px;
-    width: 30px;
     background-color: green;
     border: none;
-    margin: 10px;
     color: white;
     cursor: pointer;
+    height: 30px;
+    margin: 10px;
     text-decoration: none;
+    width: 30px;
 }
 
 .js-done:hover{
@@ -70,13 +68,13 @@
 }
 
 .js-remove{
-    height: 30px;
-    width: 30px;
     background-color: #ff0048;
     border: none;
-    margin: 10px;
     color: white;
     cursor: pointer;
+    height: 30px;
+    margin: 10px;
+    width: 30px;
 }
 
 .js-remove:hover{
