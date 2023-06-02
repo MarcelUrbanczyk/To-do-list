@@ -2,16 +2,6 @@
 
     const tasks = [];
 
-    const removeTask = (index) =>{
-        tasks.splice(index, 1)
-        render();
-    }
-
-    const toggleDone = (index) =>{
-        tasks[index].done = !tasks[index].done
-        render();
-    }
-
     const render = () =>{
         let htmlString = "";
         for (const task of tasks) {
@@ -41,16 +31,25 @@
     
     };
 
+    const removeTask = (index) =>{
+        tasks.splice(index, 1)
+        render();
+    }
+
+    const toggleDone = (index) =>{
+        tasks[index].done = !tasks[index].done
+        render();
+    }
+
     const deleteAllTasks = () =>{
         tasks.splice(0, tasks.length)
         render();
     }
 
-    const addNewTask = (event) =>{
-        event.preventDefault();
+    const addNewTask = () =>{
         const newTaskInput = document.querySelector(".js-newTask");
         const newTaskText=newTaskInput.value.trim();
-        tasks.push({content:newTaskText, done:false,});
+        if(newTaskText !== "") tasks.push({content:newTaskText, done:false,});
         newTaskInput.focus();
         newTaskInput.value="";
         render();
@@ -58,10 +57,11 @@
 
     const init = () =>{
         const deleteAllTasksButton = document.querySelector(".js-deleteAll");
-        const form = document.querySelector(".js-form");
+        const formSubmitButton = document.querySelector(".js-submitButton");
 
         deleteAllTasksButton.addEventListener('click',deleteAllTasks);
-        form.addEventListener("submit", addNewTask);
+        formSubmitButton.addEventListener('click',addNewTask);
+        
         render();
     }
 
