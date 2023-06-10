@@ -1,87 +1,108 @@
-.taskList__header{
-    background: white;
-    border: 1px solid #eee;
-    display: grid;
-    height: 80px;
-    margin: 0 10px 0 10px;
-    grid-template-columns: "200px 1fr auto";
+.taskList__header {
+  background: white;
+  border: 1px solid #eee;
+  display: grid;
+  grid-template-columns: auto 200px 200px;
 }
 
-.taskList__headerText{
-    margin: 20px;
+.taskList__headerText {
+  font-size: 32px;
+  margin: 20px;
+  grid-row-start: 1;
 }
 
-.taskListHeader__removeButton{
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: teal;
-    font-size: 18px;
-    grid-column:3; 
+.taskListHeader__button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: teal;
+  font-size: 18px;
+  transition: 0.3s;
 }
 
-.taskListHeader__removeButton:hover{
-    color: rgb(4, 201, 201);
+.taskListHeader__button:disabled {
+  color: #777;
 }
 
-
-.taskList__container{
-    align-items: center;
-    background: white;
-    border: 1px solid #eee;
-    padding: 40px 0 40px 0;
-    margin: 0 10px 0 10px;
-    min-height: 100px;
-    justify-content: center;
+.taskListHeader__button:disabled:hover {
+  color: #434343;
+  cursor: not-allowed;
 }
 
-.taskList__task{
- align-items: center;
- border-bottom: 2px solid #eee;
- display: grid;
- font-size: 20px;
- margin: 0 20px 0 20px;
- grid-template-columns: auto 1fr auto;
+.taskListHeader__button:hover {
+  color: rgb(4, 201, 201);
 }
 
-.taskList__task--lineTrough{
-    text-decoration: line-through;
+.taskList__container {
+  align-items: center;
+  background: white;
+  border: 1px solid #eee;
+  padding: 40px 0 40px 0;
+  min-height: 100px;
+  justify-content: center;
 }
 
-.tasklist{
-    margin: 10px 0 10px 0;
+.taskList__task {
+  align-items: center;
+  border-bottom: 2px solid #eee;
+  display: grid;
+  font-size: 18px;
+  margin: 0 20px 0 20px;
+  grid-template-columns: auto 1fr auto;
 }
 
-.js-done{
-    background-color: green;
-    border: none;
-    color: white;
-    cursor: pointer;
-    height: 30px;
-    margin: 10px;
-    text-decoration: none;
-    width: 30px;
+.taskList__task--lineTrough {
+  text-decoration: line-through;
 }
 
-.js-done:hover{
-    background-color: #05aa05;
+.taskList__task--hide {
+  display: none;
 }
 
-.js-remove{
-    background-color: #ff0048;
-    border: none;
-    color: white;
-    cursor: pointer;
-    height: 30px;
-    margin: 10px;
-    width: 30px;
+.js-done {
+  background-color: green;
+  border: none;
+  color: white;
+  cursor: pointer;
+  height: 30px;
+  margin: 10px;
+  text-decoration: none;
+  width: 30px;
+  transition: 0.3s;
 }
 
-.js-remove:hover{
-    background-color: #b90437;
+.js-done:hover {
+  background-color: #05aa05;
 }
 
-.js-tasks{
-    margin: 0;
-    padding: 0;
+.js-remove {
+  background-color: #ff0048;
+  border: none;
+  color: white;
+  cursor: pointer;
+  height: 30px;
+  margin: 10px;
+  width: 30px;
+  transition: 0.3s;
+}
+
+.js-remove:hover {
+  background-color: #b90437;
+}
+
+.js-tasks {
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width:960px){
+  .taskList__header{
+    padding-bottom: 20px;
+    grid-template-columns: auto;
+    grid-gap: 20px;
+  }
+
+  .taskListHeader__button{
+    grid-row: span 1;
+  }
 }

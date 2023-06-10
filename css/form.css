@@ -1,55 +1,79 @@
-.form{
-    margin: 10px;
-}
-.form__header{
-    background: white;
-    border: 1px solid #eee;
-    height: 80px;
+
+.form__header {
+  background: white;
+  border: 1px solid #eee;
+  height: 80px;
 }
 
-.form__headerText{
-margin: 20px;
+.form__headerText {
+  font-size: 32px;
+  margin: 20px;
 }
 
-.form__content{
-    align-items: center;
-    background: white;
-    border: 1px solid #eee;
-    display: grid;
-    height: 100px;
-    justify-content: center;
-    grid-template-columns: 5fr 1fr;
+.form__content {
+  align-items: center;
+  background: white;
+  border: 1px solid #eee;
+  display: grid;
+  height: 100px;
+  justify-content: center;
+  grid-template-columns: 5fr 1fr;
+  grid-gap: 20px;
 }
 
-.form__input,.form__button{
-    border: 2px solid #eee;
-    margin: 20px;
-    padding: 20px;
-    height: 50px;
+.form__input,
+.form__button {
+  padding: 20px;
+  max-height: 50px;
 }
 
-.form__button{
-    background: teal;
-    color: white;
-    cursor: pointer;
-    padding: 10px;
+.form__button {
+  background: teal;
+  border:none;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  margin: 0 20px 0 0;
+  transition: 0.3s;
 }
 
-.form__button:hover{
-    background: #00abab; 
+.form__button:hover {
+  transform: scale(1.1);
+  background: #00abab;
+}
+
+.form__input {
+  border: 2px solid #eee;
+  margin: 0 0 0 20px;
 }
 
 @media (max-width: 960px) {
-    .form__content{
-        display: grid;
-        height: 150px;
-        grid-template-rows: 75px 75px;
-        grid-template-columns: 1fr;
-    }
+  .form__content {
+    display: grid;
+    height: 150px;
+    grid-template-rows: 75px 75px;
+    grid-template-columns: 1fr;
+    grid-gap: 0;
+  }
 
-    .form__button{
-        padding: 10px;
-        grid-row: 2;
-    }
-    
+  .form__button {
+    padding: 10px;
+    grid-row: 2;
+  }
+  .form__button,
+  .form__input{
+    margin: 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .form__input,
+  .form__button {
+    padding: 10px;
+    max-height: 40px;
+  }
+
+  .form__button:hover {
+    transform: none;
+  }
 }

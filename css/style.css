@@ -12,11 +12,22 @@ body{
   background-color: #eee;
   margin: auto;
   max-width: 1000px;
-  font-family: 'Lato', sans-serif;
+  font-family: Montserrat, sans-serif;
   font-size: 24px;
   word-break: break-word;
 }
 
-header{
+.header{
+  margin: 50px 10px 10px 10px;
+}
+
+.taskList, .form{
   margin: 10px;
+  box-shadow: 0px 0px 4px 1px #ccc;
+}
+
+@media (max-width: 960px){
+  .taskList,.form,.header{
+    margin: 15px;
+  }
 }
