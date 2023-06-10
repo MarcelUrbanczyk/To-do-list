@@ -36,22 +36,22 @@
       const isAnyUndone = tasks.some((task) => task.done === false);
       htmlString += `
         <h2 class="taskList__headerText">Task list</h2>
-        <button class="taskListHeader__button js-markAllDone" ${isAnyUndone === false ? "disabled" : ""}>
-        Mark all done
-        </button>
         ${
-          hideDoneTasks === false && isAnyDone === true
+          hideDoneTasks === false
             ? 
             `<button class="taskListHeader__button js-hideDoneTasks">
               Hide done tasks </button>`
             : ``
         }
         ${
-          hideDoneTasks === true && isAnyDone === true
+          hideDoneTasks === true
             ? `<button class="taskListHeader__button js-showDoneTasks">
               Show done tasks </button>`
             : ``
         }
+        <button class="taskListHeader__button js-markAllDone" ${isAnyUndone === false ? "disabled" : ""}>
+        Mark all done
+        </button>
         `;
 
       taskListHeader.innerHTML = htmlString;
