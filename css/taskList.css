@@ -95,14 +95,10 @@
   padding: 0;
 }
 
-@media (max-width:960px){
-  .taskList__header{
+@media (max-width: 960px) {
+  .taskList__header {
     padding-bottom: 20px;
     grid-template-columns: auto;
     grid-gap: 20px;
-  }
-
-  .taskListHeader__button{
-    grid-row: span 1;
   }
 }
