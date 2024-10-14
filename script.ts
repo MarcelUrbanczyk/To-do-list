@@ -73,8 +73,44 @@
     TaskList.innerHTML = htmlTaskListContent;
   };
 
+  const renderButtons = () => {
+    let htmlTaskListHeaderContent = "";
+    const TaskListHeader = document.querySelector(".js-header") as HTMLElement;
+
+    const isAnyUndone = tasks.some((task) => !task.done);
+
+    htmlTaskListHeaderContent +=
+      tasks.length > 0
+        ? `
+    <h2 class="taskList__headerText">Task list</h2>
+    ${
+      hideDoneTasks === false
+        ? `<button class="taskListHeader__button js-hideDoneTasks">
+          Hide done tasks </button>`
+        : ``
+    }
+    ${
+      hideDoneTasks === true
+        ? `<button class="taskListHeader__button js-showDoneTasks">
+          Show done tasks </button>`
+        : ``
+    }
+    <button class="taskListHeader__button js-markAllDone" ${
+      isAnyUndone === false ? "disabled" : ""
+    }>
+    Mark all done
+    </button>
+    `
+        : `
+    <h2 class="taskList__headerText">Task list</h2>
+     `;
+
+    TaskListHeader.innerHTML = htmlTaskListHeaderContent;
+  };
+
   const render = () => {
     renderTasks();
+    renderButtons();
 
     bindRemoveButtons();
     bindDoneButtons();
