@@ -25,11 +25,30 @@
     render();
   };
 
+  const toggleTaskDone = (taskIndex: number) => {
+    tasks = [
+      ...tasks.map((task, index) =>
+        taskIndex === index ? { ...task, done: !task.done } : task
+      ),
+    ];
+
+    render();
+  };
+
   const bindRemoveButtons = () => {
     const removeButtons = document.querySelectorAll(".js-remove");
     removeButtons.forEach((removeButton, index) => {
       removeButton.addEventListener("click", () => {
         removeTask(index);
+      });
+    });
+  };
+
+  const bindDoneButtons = () => {
+    const doneButtons = document.querySelectorAll(".js-done");
+    doneButtons.forEach((doneButton, index) => {
+      doneButton.addEventListener("click", () => {
+        toggleTaskDone(index);
       });
     });
   };
@@ -58,6 +77,7 @@
     renderTasks();
 
     bindRemoveButtons();
+    bindDoneButtons();
   };
 
   const handleFormSubmit = () => {
