@@ -19,8 +19,14 @@
     render();
   };
 
-  const render = () => {
-    renderTasks();
+  const removeTask = (taskIndex) => {
+    tasks = [
+      ...tasks.filter((index) => {
+        index !== taskIndex;
+      }),
+    ];
+
+    render();
   };
 
   const renderTasks = () => {
@@ -41,6 +47,10 @@
     }
 
     TaskList.innerHTML = htmlTaskListContent;
+  };
+
+  const render = () => {
+    renderTasks();
   };
 
   const handleFormSubmit = () => {
