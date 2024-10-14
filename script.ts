@@ -13,20 +13,25 @@
 
   let hideDoneTasks: boolean;
 
-  const addNewTask = (taskContent) => {
+  const addNewTask = (taskContent: string) => {
     tasks = [...tasks, { content: taskContent, done: false }];
 
     render();
   };
 
-  const removeTask = (taskIndex) => {
-    tasks = [
-      ...tasks.filter((index) => {
-        index !== taskIndex;
-      }),
-    ];
+  const removeTask = (taskIndex: number) => {
+    tasks = [...tasks.filter((task, index) => taskIndex !== index)];
 
     render();
+  };
+
+  const bindRemoveButtons = () => {
+    const removeButtons = document.querySelectorAll(".js-remove");
+    removeButtons.forEach((removeButton, index) => {
+      removeButton.addEventListener("click", () => {
+        removeTask(index);
+      });
+    });
   };
 
   const renderTasks = () => {
@@ -51,6 +56,8 @@
 
   const render = () => {
     renderTasks();
+
+    bindRemoveButtons();
   };
 
   const handleFormSubmit = () => {
