@@ -11,7 +11,7 @@
     },
   ];
 
-  let hideDoneTasks: boolean;
+  let hideDoneTasks: boolean = false;
 
   const addNewTask = (taskContent: string) => {
     tasks = [...tasks, { content: taskContent, done: false }];
@@ -33,6 +33,32 @@
     ];
 
     render();
+  };
+
+  const markAllTasksDone = () => {
+    const markAllTasksDoneButton = document.querySelector(
+      ".js-markAllDone"
+    ) as HTMLElement;
+
+    const isAnyUndone = tasks.some((task) => !task.done);
+
+    markAllTasksDoneButton && isAnyUndone
+      ? markAllTasksDoneButton.addEventListener("click", () => {
+          tasks = [...tasks.map((task) => ({ ...task, done: true }))];
+          render();
+        })
+      : "";
+  };
+
+  const toggleHideDone = () => {
+    const hideDoneTasksButton = document.querySelector(".js-toggleHideDone");
+    const isAnyDone = tasks.some((task) => task.done);
+    hideDoneTasksButton && isAnyDone
+      ? hideDoneTasksButton.addEventListener("click", () => {
+          hideDoneTasks = !hideDoneTasks;
+          render();
+        })
+      : "";
   };
 
   const bindRemoveButtons = () => {
@@ -85,13 +111,13 @@
     <h2 class="taskList__headerText">Task list</h2>
     ${
       hideDoneTasks === false
-        ? `<button class="taskListHeader__button js-hideDoneTasks">
+        ? `<button class="taskListHeader__button js-toggleHideDone">
           Hide done tasks </button>`
         : ``
     }
     ${
       hideDoneTasks === true
-        ? `<button class="taskListHeader__button js-showDoneTasks">
+        ? `<button class="taskListHeader__button js-toggleHideDone">
           Show done tasks </button>`
         : ``
     }
@@ -111,6 +137,9 @@
   const render = () => {
     renderTasks();
     renderButtons();
+
+    markAllTasksDone();
+    toggleHideDone();
 
     bindRemoveButtons();
     bindDoneButtons();
