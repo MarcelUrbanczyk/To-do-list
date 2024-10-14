@@ -13,13 +13,19 @@
 
   let hideDoneTasks: boolean;
 
+  const addNewTask = (taskContent) => {
+    tasks = [...tasks, { content: taskContent, done: false }];
+
+    render();
+  };
+
   const render = () => {
     renderTasks();
   };
 
   const renderTasks = () => {
     let htmlTaskListContent = "";
-
+    const TaskList = document.querySelector(".js-tasks") as HTMLElement;
     for (const task of tasks) {
       htmlTaskListContent += `
       <li class="taskList__task ${
@@ -34,13 +40,27 @@
     `;
     }
 
-    document.querySelector(".js-tasks")!.innerHTML = htmlTaskListContent;
+    TaskList.innerHTML = htmlTaskListContent;
+  };
+
+  const handleFormSubmit = () => {
+    const newTaskInput = document.querySelector(
+      ".js-newTask"
+    ) as HTMLInputElement;
+
+    let newTaskContent = newTaskInput.value.trim();
+
+    newTaskContent ? addNewTask(newTaskContent) : "";
+    newTaskInput.value = "";
+    newTaskInput.focus();
   };
 
   const init = () => {
-    const formSubmitButton = document.querySelector("js-submitButton");
+    const formSubmitButton = document.querySelector(
+      ".js-submitButton"
+    ) as HTMLInputElement;
 
-    formSubmitButton?.addEventListener("click", () => {});
+    formSubmitButton.addEventListener("click", handleFormSubmit);
 
     render();
   };
